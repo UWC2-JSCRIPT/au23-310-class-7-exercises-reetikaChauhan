@@ -12,51 +12,52 @@ describe('Tests for the Blackjack.spec.js',() =>{
             });
         })
         // ---------
-        describe('I ace test case ',() =>{
-            it('should return issoft: true',() =>{
+        describe('1 ace test case ',() =>{
+            it('should return issoft: false',() =>{
                 const hand = [
-                    {displayVal:'jack', val:10, suit:'hearts'},
-                    {displayVal:'ace', val:11, suit:'spade'}
+                    {displayVal:'Ace', val:11, suit:'spade'},
+                    {displayVal:'King', val:10, suit:'hearts'},
+                    {displayVal:'King', val:10, suit:'hearts'},
                 ]
                 const result = calcPoints(hand)
                 expect(result.total).toEqual(21);
                 expect(result.isSoft).toEqual(false)
             })
         })
-        describe('I ace test case ',() =>{
+        describe('Multiple  ace test case ',() =>{
             it('should return issoft: false',() =>{
                 const hand = [
-                    {displayVal:'four', val:4, suit:'spade'},
-                    {displayVal:'four', val:5, suit:'spade'},
-                    {displayVal:'ace', val:11, suit:'spade'}
+                    {displayVal:'10', val:10, suit:'spade'},
+                    {displayVal:'Ace', val:11, suit:'spade'},
+                    {displayVal:'Ace', val:11, suit:'spade'}
                 ]
                 const result = calcPoints(hand)
-                expect(result.total).toEqual(20);
+                expect(result.total).toEqual(12);
                 expect(result.isSoft).toEqual(false)
             })
         })
-        describe('more than 1 ace test case ',() =>{
-            it('should return issoft: false',() =>{
+        describe('1 ace test case ',() =>{
+            it('should return issoft: true',() =>{
                 const hand = [
-                    {displayVal:'jack', val:10, suit:'hearts'},
-                    {displayVal:'ace', val:11, suit:'spade'},
-                    {displayVal:'ace', val:11, suit:'spade'}
+                    {displayVal:'Ace', val:11, suit:'spade'},
+                    {displayVal:'8', val:8, suit:'hearts'},
+  
                 ]
                 const result = calcPoints(hand)
-                expect(result.total).toEqual(32);
-                expect(result.isSoft).toEqual(false)
+                expect(result.total).toEqual(19);
+                expect(result.isSoft).toEqual(true)
             })
         })
-        describe('more than 1 ace test case ',() =>{
-            it('should return issoft: false',() =>{
+         describe(' Multiple ace test case ',() =>{
+            it('should return issoft: true',() =>{
                 const hand = [
-                    {displayVal:'jack', val:10, suit:'hearts'},
-                    {displayVal:'ace', val:11, suit:'spade'},
-                    {displayVal:'ace', val:11, suit:'spade'}
+                    {displayVal:'6', val:6, suit:'hearts'},
+                    {displayVal:'Ace', val:11, suit:'spade'},
+                    {displayVal:'Ace', val:11, suit:'spade'},
                 ]
                 const result = calcPoints(hand)
-                expect(result.total).toEqual(32);
-                expect(result.isSoft).toEqual(false)
+                expect(result.total).toEqual(18);
+                expect(result.isSoft).toEqual(true)
             })
         })
     })
