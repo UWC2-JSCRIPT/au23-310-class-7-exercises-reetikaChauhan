@@ -52,13 +52,18 @@ const unhidingreasonoptions = () =>{
         titleEl.parentElement.classList.remove("optionstoggle");
         websiteEl.parentElement.classList.remove("optionstoggle")
         codingEl.parentElement.classList.add("optionstoggle")
-       
+        titleEl.setAttribute('required', '');
+        websiteEl.setAttribute('required','');
+        codingEl.removeAttribute('required');
     }
     else{
         
         titleEl.parentElement.classList.add("optionstoggle");
-        websiteEl.parentElement.classList.add("optionstoggle")
-        codingEl.parentElement.classList.remove("optionstoggle")
+        websiteEl.parentElement.classList.add("optionstoggle");
+        codingEl.parentElement.classList.remove("optionstoggle");
+        codingEl.setAttribute('required','');
+        titleEl.removeAttribute('required');
+        websiteEl.removeAttribute('required');
         
     }
 
